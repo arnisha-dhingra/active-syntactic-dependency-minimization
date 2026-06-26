@@ -1,23 +1,132 @@
-# active-syntactic-dependency-minimization
-An empirical investigation into active Dependency Length Minimization (DLM) and typological constraints across 12 languages using the Universal Dependencies (UD) treebanks.
-1. Project Overview
-"This repository contains the codebase and methodology for the study 'Active Minimization and Typological Constraints in Syntactic Dependencies Across 12 Languages.' We analyze how human languages evolve structures to minimize cognitive load, specifically investigating how Dependency Length Minimization (DLM) operates across diverse word-order typologies (SVO, SOV, and Mixed/Flexible)."  
-PDF
-2. Hypotheses
-Hypothesis 1 (Active Minimization): Syntactic dependencies are actively compressed by grammatical rules; observed dependency distances will be shorter than randomized baselines, with intervening words scaling sublinearly with sentence length.  
-PDF
-Hypothesis 2 (Typological Constraints): Word-order rules govern dependency resolution, with distinct typologies (SOV, SVO, Mixed) relying on different intervening part-of-speech categories and exhibiting different directionality patterns.  
-PDF
-3. Data & Methodology
-Data Source: The project utilizes syntactically annotated treebanks from the Universal Dependencies (UD) dataset.  
-PDF
-Implementation: The core analysis is conducted via a custom Python pipeline that processes CoNLL-U data to extract UPOS tags, dependency direction, and absolute dependency distance.  
-PDF
-Baseline Generation: To test for active minimization, we generate randomized baselines by shuffling word order while preserving sentence length to create a null distribution.  
-PDF
-4. Access the Analysis
-"The complete Python implementation for this study, including data collection and metric extraction, is hosted in a reproducible Google Colab environment: [Link to Colab Notebook]"[cite: 1].
-Implementation Tips for Your Scripts
-CoNLL-U Parsing: Ensure your parsing.py correctly filters out root nodes as specified in your methods section[cite: 1].
-Normalization: Since you calculated "Normalized Distance" to allow for fair cross-linguistic comparison, ensure this calculation (distance divided by total sentence length) is a reusable function in your metrics.py[cite: 1].
-Baseline Randomization: In your baseline.py, verify that the shuffling algorithm perfectly preserves sentence length to maintain the validity of your null distribution[cite: 1].
+# Linguistic Network Efficiency
+
+> **A large-scale computational linguistics project investigating Dependency Length Minimization (DLM) across 12 language typologies using the Universal Dependencies (UD) corpus.**
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Research](https://img.shields.io/badge/Type-Computational%20Linguistics-green)
+![Languages](https://img.shields.io/badge/Languages-12-orange)
+![Dependencies](https://img.shields.io/badge/Parsed-2.6M%2B-red)
+
+---
+
+## Overview
+
+This repository contains the implementation and research methodology for analyzing **Dependency Length Minimization (DLM)** across **12 languages** from the Universal Dependencies (UD) treebanks.
+
+The project investigates whether human languages actively minimize syntactic dependency distances to reduce cognitive load by comparing observed dependency structures against randomized baselines generated through Monte Carlo simulations.
+
+---
+
+## Research Objective
+
+The objective of this work is to quantify structural network efficiency across diverse language typologies and determine whether dependency minimization is an actively enforced grammatical constraint rather than a statistical artifact.
+
+---
+
+## Dataset
+
+- Universal Dependencies (UD) Treebanks
+- **12 languages**
+- **2.6M+ parsed dependency relations**
+- Typologies analyzed:
+  - SVO
+  - SOV
+  - Mixed/Flexible
+
+---
+
+## Methodology
+
+The analysis pipeline performs the following steps:
+
+- Parse CoNLL-U treebanks
+- Extract dependency relations
+- Compute absolute dependency distance
+- Compute normalized dependency distance
+- Analyze dependency directionality
+- Extract intervening POS categories
+- Generate randomized null distributions using Monte Carlo simulations
+- Compare observed vs. randomized dependency structures
+- Analyze scaling with sentence length
+- Generate publication-quality visualizations
+
+---
+
+## Key Findings
+
+- Parsed over **2.6 million** syntactic dependency relations.
+- Demonstrated approximately **3× shorter dependency networks** compared to randomized baselines.
+- Observed **strictly sublinear scaling** between dependency complexity and sentence length.
+- Identified systematic structural differences across SVO, SOV, and Mixed/Flexible language families.
+- Quantified typological variation in dependency directionality and intervening part-of-speech distributions.
+
+---
+
+## Repository Structure
+
+```text
+.
+├── src/
+│   ├── parser/
+│   ├── preprocessing/
+│   ├── analysis/
+│   └── visualization/
+├── notebooks/
+│   └── linguistic_network_efficiency.ipynb
+├── main.py
+├── README.md
+└── research_report.pdf
+```
+
+---
+
+## Tech Stack
+
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- conllu
+
+---
+
+## Running the Project
+
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+---
+
+## Repository Contents
+
+- **`src/`** — Modular implementation of the analysis pipeline.
+- **`notebooks/`** — Original research notebook used during experimentation.
+- **`main.py`** — Entry point for running the analysis.
+- **`research_report.pdf`** — Complete project report describing the methodology and experimental results.
+
+---
+
+## Research Contributions
+
+This repository supports the following research contributions:
+
+- Designed an end-to-end Python pipeline for parsing and analyzing multilingual syntactic dependency networks.
+- Developed a Monte Carlo simulation framework to generate randomized null distributions for hypothesis testing.
+- Evaluated dependency network efficiency across twelve language typologies.
+- Investigated the relationship between dependency complexity and sentence length using large-scale computational analysis.
+
+---
+
+## Mentor
+
+**Prof. Himanshu Yadav**  
+Indian Institute of Technology Kanpur
+
+---
+
+## License
+
+This repository is intended for research and educational purposes.
